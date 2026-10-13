@@ -127,13 +127,13 @@
       ></textarea>
     </div>
 
-    <!-- PLACE ORDER -->
-    <button
-      id="place-order"
-      class="mt-12 w-full bg-[#b93d22] hover:bg-[#a3361f] text-white py-5 sm:py-6 rounded-full text-xl sm:text-2xl font-bold transition-all shadow-lg active:scale-[0.98]"
-    >
-      Order Now
-    </button>
+  <!-- PLACE ORDER -->
+<button
+  id="place-order"
+  class="mt-12 w-full bg-[#b93d22] hover:bg-[#a3361f] text-white py-5 sm:py-6 rounded-full text-xl sm:text-2xl font-bold transition-all shadow-lg active:scale-[0.98]"
+>
+  Order Now
+</button>
 
     <!-- BACK BUTTON (Visible only when empty) -->
     <div id="back-to-shop" class="hidden text-center mt-6">
@@ -271,6 +271,63 @@
 
 
   renderBasket();
+
+  /* operating hours script */
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Custom Operational Schedule
+    const kafeSchedule = {
+        1: { open: 14, close: 22 },  // Monday
+        2: { open: 14, close: 22 },  // Tuesday
+        3: { open: 14, close: 22 },  // Wednesday
+        4: { open: 14, close: 22 },  // Thursday
+        5: { open: 12, close: 24 },  // Friday
+        6: { open: 12, close: 24 },  // Saturday
+        0: { open: 12, close: 24 }   // Sunday
+    };
+
+    function isKafeOpen() {
+        const now = new Date();
+        const currentDay = now.getDay();
+        const currentHour = now.getHours();
+        const currentMinutes = now.getMinutes();
+        
+        const currentTimeDecimal = currentHour + (currentMinutes / 60);
+        const todaySchedule = kafeSchedule[currentDay];
+
+        if (!todaySchedule) return false;
+        return currentTimeDecimal >= todaySchedule.open && currentTimeDecimal < todaySchedule.close;
+    }
+
+    const orderButton = document.getElementById("place-order");
+    
+    if (orderButton) {
+        if (!isKafeOpen()) {
+            // 🛑 CLOSED STATE LOCKDOWN
+            orderButton.style.backgroundColor = "#555555"; 
+            orderButton.style.cursor = "not-allowed";      
+            orderButton.innerHTML = "<span> OOPS!! We are currently closed! </span>";
+            
+            // 1. Strip away any inline 'onclick' attributes that might bypass our script
+            orderButton.removeAttribute("onclick");
+
+            // 2. Clone the button to completely wipe out any active WhatsApp Event Listeners
+            const lockedButton = orderButton.cloneNode(true);
+            orderButton.parentNode.replaceChild(lockedButton, orderButton);
+
+            // 3. Add a strict, clean block alert to the fresh locked button
+            lockedButton.addEventListener("click", function(event) {
+                event.preventDefault();
+                event.stopImmediatePropagation(); // Prevents other scripts from hearing this click
+                alert("OOPS!! We are currently closed!\n\nWe accept online orders:\n• Monday - Thursday: 14:00PM to 22:00PM\n• Friday - Sunday: 12:00PM to 12:00AM");
+                return false;
+            }, true); // 'true' sets it to capturing phase so it catches the click first!
+
+        } else {
+            // ✅ OPEN STATE
+            console.log("Kafe is open! Orders will process to WhatsApp normally.");
+        }
+    }
+});
 
   
 /* ios hover */

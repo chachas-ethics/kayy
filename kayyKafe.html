@@ -156,6 +156,82 @@
   
    
 </header>
+
+<!-- DAILY OFFER SECTION -->
+<section class="daily-offer-section mt-40">
+    <div class="offer-container">
+        <h2 class="offer-title">Today's Special Offer</h2>
+        
+        <!-- Poster Wrapper -->
+        <div class="poster-wrapper">
+            <img id="daily-poster" src="img/offerMonday.jpeg" alt="Loading today's offer..." class="poster-image">
+        </div>
+
+        <!-- Price and Dynamic Cart Button Area -->
+        <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4 w-full">
+            <!-- Dynamic Price Tag -->
+            <span id="daily-price-tag" class="text-xl font-bold text-[#b93d22]">0/=</span>
+            
+            <!-- Dynamic Button -->
+            <button id="add-offer-to-cart" 
+                    class="flex items-center gap-2 bg-[#b93d22] text-white px-4 py-2 rounded-full font-bold hover:bg-[#8a2b0c] hover:text-white transition-all active:scale-95">
+                <span>Add</span>
+                <svg xmlns="http://w3.org" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- STYLES (CSS) -->
+<style>
+    .daily-offer-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 10px;
+        background-color: #f9f9f9;
+    }
+
+    .offer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 809px; /* Matches max poster width */
+    }
+
+    .offer-title {
+        font-family: 'Abril Fatface', cursive;
+        color: #b93d22;
+        font-weight: 600;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+
+    .poster-wrapper {
+        width: 100%;
+        height: 500px;     
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #eee; 
+    }
+
+    .poster-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+        display: block;
+    }
+</style>
+
+
 </section>
 
 <!-- OFFERS SLIDESHOW SECTION -->
@@ -5532,6 +5608,78 @@ document.addEventListener('DOMContentLoaded', updateCartBadge);
     }
   })();
 
+  /* daily offer change script */document.addEventListener("DOMContentLoaded", function() {
+    // 1. Define the unique data & pricing structure for each day of the week
+    // Index 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const dailyOffers = [
+        {
+            dayName: "Sunday",
+            image: "img/offerSunday.jpeg",
+            dishName: "MBUZI CHOMA OFFER",
+            price: 14000
+        },
+        {
+            dayName: "Monday",
+            image: "img/offerMonday.jpeg",
+            dishName: "CHEESSYY MONDAY OFFER",
+            price: 20000
+        },
+        {
+            dayName: "Tuesday",
+            image: "img/offerTuesday.jpeg",
+            dishName: "MOJITO MADNESS OFFER",
+            price: 4500
+        },
+        {
+            dayName: "Wednesday",
+            image: "img/offerWednesday.jpeg",
+            dishName: "ALL-STAR DUO OFFER",
+            price: 21000
+        },
+        {
+            dayName: "Thursday",
+            image: "img/offerThursday.jpeg",
+            dishName: "T-BONE THURSDAY OFFER",
+            price: 28000
+        },
+        {
+            dayName: "Friday",
+            image: "img/offerFriday.jpeg",
+            dishName: "MANDI FRIDAY OFFER",
+            price: 25000
+        },
+        {
+            dayName: "Saturday",
+            image: "img/offerSaturday.jpeg",
+            dishName: "SATO SATURDAYS",
+            price: 16000
+        }
+    ];
+
+    // 2. Determine today's day sequence index
+    const todayIndex = new Date().getDay();
+    const todaysOffer = dailyOffers[todayIndex];
+
+    // 3. Select your document objects
+    const posterImage = document.getElementById("daily-poster");
+    const priceTag = document.getElementById("daily-price-tag");
+    const cartButton = document.getElementById("add-offer-to-cart");
+
+    // 4. Update the content and hook up your addToCart system
+    if (posterImage && priceTag && cartButton) {
+        // Change image file path and alt tags
+        posterImage.src = todaysOffer.image;
+        posterImage.alt = `Today's Special: ${todaysOffer.dishName}`;
+
+        // Format currency view to match your "14,000/=" template structure
+        priceTag.textContent = `${todaysOffer.price.toLocaleString()}/=`;
+
+        // Direct event listener integration with your global addToCart mechanism
+        cartButton.addEventListener("click", function() {
+            addToCart(todaysOffer.dishName, todaysOffer.price);
+        });
+    }
+});
   
 /* ios hover */
  document.addEventListener("touchstart", function() {}, true);
