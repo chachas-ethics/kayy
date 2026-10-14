@@ -121,7 +121,7 @@
       </label>
       <textarea
         id="order-comment"
-        placeholder="Delivery instructions, preferences, etc..."
+        placeholder="Delivery instructions, preferences, allergies etc..."
         class="w-full rounded-xl border-2 border-gray-300 p-4 text-base sm:text-lg focus:border-[#b93d22] focus:outline-none transition"
         rows="3"
       ></textarea>
@@ -249,7 +249,6 @@
 
   // Add Service Method to top of message
   message += `Type: ${serviceMethod}\n`;
-  message += `────────────────────\n`;
 
   basket.forEach(item => {
     const qty = item.qty || 1;
