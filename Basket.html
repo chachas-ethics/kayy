@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Basket</title>
+    <title>kayy. Kafe | THE SCOOP Basket</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -283,49 +283,60 @@ document.addEventListener("DOMContentLoaded", function() {
         6: { open: 12, close: 24 },  // Saturday
         0: { open: 12, close: 24 }   // Sunday
     };
+function isKafeOpen() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+    const currentMinutes = now.getMinutes();
 
-    function isKafeOpen() {
-        const now = new Date();
-        const currentDay = now.getDay();
-        const currentHour = now.getHours();
-        const currentMinutes = now.getMinutes();
-        
-        const currentTimeDecimal = currentHour + (currentMinutes / 60);
-        const todaySchedule = kafeSchedule[currentDay];
+    const currentTimeDecimal = currentHour + (currentMinutes / 60);
+    const todaySchedule = kafeSchedule[currentDay];
 
-        if (!todaySchedule) return false;
-        return currentTimeDecimal >= todaySchedule.open && currentTimeDecimal < todaySchedule.close;
+    if (!todaySchedule) return false;
+
+    // Close ordering 15 minutes before the scheduled closing time
+    const orderClosingTime = todaySchedule.close - (15 / 60);
+
+    return currentTimeDecimal >= todaySchedule.open &&
+           currentTimeDecimal < orderClosingTime;
+}
+
+const orderButton = document.getElementById("place-order");
+
+if (orderButton) {
+    if (!isKafeOpen()) {
+        // CLOSED STATE
+        orderButton.style.backgroundColor = "#FF0000";
+        orderButton.style.cursor = "not-allowed";
+        orderButton.innerHTML = "<span>OOPS!! We are currently closed!</span>";
+
+        // Remove inline onclick attributes
+        orderButton.removeAttribute("onclick");
+
+        // Clone button to remove existing event listeners
+        const lockedButton = orderButton.cloneNode(true);
+        orderButton.parentNode.replaceChild(lockedButton, orderButton);
+
+        // Block order attempts
+        lockedButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            alert(
+                "OOPS!! We are currently closed!\n\n" +
+                "Online ordering hours:\n" +
+                "• Monday - Thursday: 14:00 to 21:45\n" +
+                "• Friday - Sunday: 12:00 to 23:45"
+            );
+
+            return false;
+        }, true);
+
+    } else {
+        // OPEN STATE
+        console.log("Kafe is open! Orders will process to WhatsApp normally.");
     }
-
-    const orderButton = document.getElementById("place-order");
-    
-    if (orderButton) {
-        if (!isKafeOpen()) {
-            // 🛑 CLOSED STATE LOCKDOWN
-            orderButton.style.backgroundColor = "#555555"; 
-            orderButton.style.cursor = "not-allowed";      
-            orderButton.innerHTML = "<span> OOPS!! We are currently closed! </span>";
-            
-            // 1. Strip away any inline 'onclick' attributes that might bypass our script
-            orderButton.removeAttribute("onclick");
-
-            // 2. Clone the button to completely wipe out any active WhatsApp Event Listeners
-            const lockedButton = orderButton.cloneNode(true);
-            orderButton.parentNode.replaceChild(lockedButton, orderButton);
-
-            // 3. Add a strict, clean block alert to the fresh locked button
-            lockedButton.addEventListener("click", function(event) {
-                event.preventDefault();
-                event.stopImmediatePropagation(); // Prevents other scripts from hearing this click
-                alert("OOPS!! We are currently closed!\n\nWe accept online orders:\n• Monday - Thursday: 14:00PM to 22:00PM\n• Friday - Sunday: 12:00PM to 12:00AM");
-                return false;
-            }, true); // 'true' sets it to capturing phase so it catches the click first!
-
-        } else {
-            // ✅ OPEN STATE
-            console.log("Kafe is open! Orders will process to WhatsApp normally.");
-        }
-    }
+}
 });
 
   
