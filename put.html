@@ -1,300 +1,109 @@
- <header
-    id="site-header"
-    class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
-  >
+<!-- Header Logo -->
+    <div style="padding: 20px; text-align: center;">
+        <img src="thumbnailss/kayydot.PNG" alt="kayy. Kafe Logo" style="height: 60px;">
+    </div>
 
-    <nav
-      class="mx-auto flex h-24 max-w-[1600px] items-center justify-between pr-10 sm:px-8 lg:px-12"
-      aria-label="Main navigation"
-    >
-
-    <!-- Logo -->
-<a href="#home" class="group relative z-10 flex items-center gap-3" aria-label="Kavora Africa Home">
-  <!-- Logo Image -->
-  <img 
-    src="thumbs/(LOGO 3) Tree left kavora right transparent bg.svg" 
-    alt="" 
-    class="-ml-5 h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
-  />
-</a>
-
-
-
-      <!-- Desktop Navigation -->
-      <div class="hidden items-center gap-8 lg:flex">
-
-        <a
-          href="#destinations"
-          class="nav-link relative py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white/90 transition-colors duration-300 hover:text-kavora-gold"
-        >
-          Destinations
+     <!-- The Scoop Side -->
+        <a href="#scoop-menu" class="group relative flex-1 flex items-center justify-center overflow-hidden transition-all duration-700 ease-in-out md:hover:flex-[1.4]">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-scoop bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <!-- Black Tint -->
+            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-all"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 text-center p-6">
+                <h1 class="text-white text-4xl md:text-6xl font-display uppercase tracking-widest mb-2 drop-shadow-lg">The Scoop</h1>
+                <p class="text-zinc-200 text-lg mb-8 italic">Mouthwatering Desserts</p>
+                <div class="inline-block border-2 border-white px-8 py-3 text-white rounded-3xl font-bold uppercase tracking-widest transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                    View Desserts Menu
+                </div>
+            </div>
         </a>
-
-        <a
-          href="#journeys"
-          class="nav-link relative py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white/90 transition-colors duration-300 hover:text-kavora-gold"
-        >
-          Journeys
-        </a>
-
-         <a
-          href="#about"
-          class="nav-link relative py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white/90 transition-colors duration-300 hover:text-kavora-gold"
-        >
-          About
-        </a>
-
-        <a
-          href="#journal"
-          class="nav-link relative py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white/90 transition-colors duration-300 hover:text-kavora-gold"
-        >
-          Journal
-        </a>
-
-        <a
-          href="#contact"
-          class="nav-link relative py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white/90 transition-colors duration-300 hover:text-kavora-gold"
-        >
-          Contact
-        </a>
-
-      </div>
-
-
-      <!-- Desktop CTA -->
-      <div class="hidden lg:flex">
-
-        <a
-          href="#contact"
-          class="group relative overflow-hidden border border-white/40 px-6 py-3 text-[9px] font-semibold uppercase tracking-[0.24em] text-white transition-all duration-500 hover:border-kavora-gold"
-        >
-
-          <span
-            class="absolute inset-0 -translate-x-full bg-kavora-gold transition-transform duration-500 group-hover:translate-x-0"
-          ></span>
-
-          <span class="relative z-10 transition-colors duration-500 group-hover:text-kavora-green">
-            Design Your Journey
-          </span>
-
-        </a>
-
-      </div>
-
-
-      <!-- Mobile Menu Button -->
-      <button
-        id="menu-toggle"
-        type="button"
-        class="relative z-50 flex h-10 w-10 items-center justify-center text-kavora-gold lg:hidden"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-      >
-
-        <span
-          id="menu-icon"
-          class="relative block h-4 w-5"
-        >
-
-          <span
-            class="menu-line absolute left-0 top-0 h-px w-full bg-current transition-all duration-300"
-          ></span>
-
-          <span
-            class="menu-line absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current transition-all duration-300"
-          ></span>
-
-          <span
-            class="menu-line absolute left-0 bottom-0 h-px w-full bg-current transition-all duration-300"
-          ></span>
-
-        </span>
-
-      </button>
-
-    </nav>
-
-
-    <!-- Mobile Navigation -->
-    <div
-      id="mobile-menu"
-      class="pointer-events-none invisible absolute inset-x-0 top-0 min-h-screen bg-kavora-green opacity-0 transition-all duration-500 lg:hidden"
-    >
-
-      <div class="flex min-h-screen flex-col px-8 pb-10 pt-32">
-
-        <div class="flex flex-col">
-
-          <a
-            href="#destinations"
-            class="mobile-link border-b border-white/10 py-5 font-luxury text-4xl text-white"
-          >
-            Destinations
-          </a>
-
-          <a
-            href="#journeys"
-            class="mobile-link border-b border-white/10 py-5 font-luxury text-4xl text-white"
-          >
-            Journeys
-          </a>
-
-          <a
-            href="#concierge"
-            class="mobile-link border-b border-white/10 py-5 font-luxury text-4xl text-white"
-          >
-            Concierge
-          </a>
-
-          <a
-            href="#about"
-            class="mobile-link border-b border-white/10 py-5 font-luxury text-4xl text-white"
-          >
-            About
-          </a>
-
-          <a
-            href="#journal"
-            class="mobile-link border-b border-white/10 py-5 font-luxury text-4xl text-white"
-          >
-            Journal
-          </a>
-
-          <a
-            href="#contact"
-            class="mobile-link border-b border-white/10 py-5 font-luxury text-4xl text-white"
-          >
-            Contact
-          </a>
-
-        </div>
-
-
-        <div class="mt-auto">
-
-          <p class="mb-4 text-[9px] uppercase tracking-[0.3em] text-kavora-gold">
-            Luxury Travel Concierge
-          </p>
-
-          <p class="max-w-xs font-luxury text-xl leading-relaxed text-white/70">
-            Private journeys, exceptional stays and seamless experiences across Africa.
-          </p>
-
-        </div>
-
-      </div>
 
     </div>
 
-  </header>
-
- <script>
-
-    const header = document.getElementById('site-header');
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuLines = document.querySelectorAll('.menu-line');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    let menuOpen = false;
 
 
-    /* Navbar scroll state */
-
-    window.addEventListener('scroll', () => {
-
-      if (window.scrollY > 40) {
-
-        header.classList.add(
-          'bg-kavora-green/95',
-          'backdrop-blur-xl',
-          'shadow-lg',
-          'shadow-black/10'
-        );
-
-        header.querySelector('nav').classList.remove('h-24');
-        header.querySelector('nav').classList.add('h-20');
-
-      } else {
-
-        header.classList.remove(
-          'bg-kavora-green/95',
-          'backdrop-blur-xl',
-          'shadow-lg',
-          'shadow-black/10'
-        );
-
-        header.querySelector('nav').classList.remove('h-20');
-        header.querySelector('nav').classList.add('h-24');
-
-      }
-
-    });
+    <!-- CARD 8 -->
+<div class="bg-white rounded-2xl shadow-md p-3 sm:p-4 flex flex-col">
+  <img src="thumbnailss/green tea.jpg" alt="Milk Tea" class="rounded-xl object-cover aspect-square" loading="lazy" />
+  <h3 class="mt-3 text-lg sm:text-xl font-semibold text-center">Milk Tea</h3>
+  <p class="text-center text-gray-500 mb-3 text-sm sm:text-base">4,000/=</p>
+  
+  <!-- Updated button to open modal -->
+  <button onclick="openMilkTeaModal()" class="mt-auto bg-[#63c89c] hover:bg-[#57b88d] text-white py-2.5 sm:py-3 rounded-full text-sm sm:text-lg font-medium transition">
+    View Varieties
+  </button>
+</div>
 
 
-    /* Mobile menu */
+<!-- OFFERS SLIDESHOW SECTION -->
+<div class="pt-[160px] pb-10 bg-white">
+    <div class="max-w-xl mx-auto px-4">
+        
+        <h2 class="text-2xl pt-5 font-bold font-[Abril-Fatface] text-[#b93d22] mb-4 text-center uppercase tracking-wider">Daily Offers</h2>
+        
+        <div class="relative overflow-hidden rounded-[2rem] shadow-2xl group border-4 border-[#b93d22]" id="touch-area">
+            
+            <!-- Glass Navigation Buttons -->
+            <button onclick="prevOffer()" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#b93d22] backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:bg-[#b93d22] transition-all">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextOffer()" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#b93d22] backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:bg-[#b93d22] transition-all">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-    function toggleMenu() {
+            <!-- Slides Container -->
+            <div id="offer-slides" class="flex transition-transform duration-500 ease-out cursor-grab active:cursor-grabbing">
+                
+                <!-- Slide 1 -->
+                <div class="min-w-full relative h-[350px]">
+                    <img src="img/offa.jpeg" class="w-45 h-70 object-cover" alt="Monday Special">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-center">
+                        <h3 class="text-white text-2xl font-bold mb-4">Monday Special Deal</h3>
+                        <button onclick="addToCart('Monday Special', 12000)" 
+                                class="bg-white text-[#b93d22] py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl active:scale-95 transition-all">
+                            Order This Offer
+                        </button>
+                    </div>
+                </div>
 
-      menuOpen = !menuOpen;
+                <!-- Slide 2 -->
+                <div class="min-w-full relative h-[350px]">
+                    <img src="thumbnailss/egg sandwich.jpeg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-center">
+                        <h3 class="text-white text-2xl font-bold mb-4">Tuesday Deals</h3>
+                        <button onclick="addToCart('Family Platter', 35000)" class="bg-white text-[#b93d22] py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl">Order This Offer</button>
+                    </div>
+                </div>
 
-      menuToggle.setAttribute('aria-expanded', menuOpen);
+                <!-- Slide 3 -->
+                <div class="min-w-full relative h-[350px]">
+                    <img src="thumbnailss/bb.jpg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-center">
+                        <h3 class="text-white text-2xl font-bold mb-4">Thursday Fiesta</h3>
+                        <button onclick="addToCart('Twin Burgers', 18000)" class="bg-white text-[#b93d22] py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl">Order This Offer</button>
+                    </div>
+                </div>
 
-      if (menuOpen) {
+                <!-- Slide 4 -->
+                <div class="min-w-full relative h-[350px]">
+                    <img src="thumbnailss/mp.jpeg" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-center">
+                        <h3 class="text-white text-2xl font-bold mb-4">Kitchen Splash</h3>
+                        <button onclick="addToCart('Juice Bucket', 10000)" class="bg-white text-[#b93d22] py-4 rounded-full font-black uppercase text-sm tracking-widest shadow-xl">Order This Offer</button>
+                    </div>
+                </div>
 
-        mobileMenu.classList.remove(
-          'pointer-events-none',
-          'invisible',
-          'opacity-0'
-        );
+            </div>
 
-        mobileMenu.classList.add(
-          'pointer-events-auto',
-          'visible',
-          'opacity-100'
-        );
-
-        menuLines[0].classList.add('rotate-45', 'top-1/2');
-        menuLines[1].classList.add('opacity-0');
-        menuLines[2].classList.add('-rotate-45', 'bottom-auto', 'top-1/2');
-
-      } else {
-
-        mobileMenu.classList.remove(
-          'pointer-events-auto',
-          'visible',
-          'opacity-100'
-        );
-
-        mobileMenu.classList.add(
-          'pointer-events-none',
-          'invisible',
-          'opacity-0'
-        );
-
-        menuLines[0].classList.remove('rotate-45', 'top-1/2');
-        menuLines[1].classList.remove('opacity-0');
-        menuLines[2].classList.remove('-rotate-45', 'bottom-auto', 'top-1/2');
-
-      }
-
-    }
-
-
-    menuToggle.addEventListener('click', toggleMenu);
-
-
-    /* Close mobile menu when a link is clicked */
-
-    mobileLinks.forEach(link => {
-
-      link.addEventListener('click', () => {
-
-        if (menuOpen) {
-          toggleMenu();
-        }
-
-      });
-
-    });
-    </script>
+            <!-- Dots -->
+            <div class="absolute bottom-4 left-0 w-full flex justify-center gap-2">
+                <span class="offer-dot w-2 h-2 rounded-full bg-white/50" data-idx="0"></span>
+                <span class="offer-dot w-2 h-2 rounded-full bg-white/50" data-idx="1"></span>
+                <span class="offer-dot w-2 h-2 rounded-full bg-white/50" data-idx="2"></span>
+                <span class="offer-dot w-2 h-2 rounded-full bg-white/50" data-idx="3"></span>
+            </div>
+        </div>
+    </div>
+</div>
