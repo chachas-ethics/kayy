@@ -157,34 +157,51 @@
    
 </header>
 
+
 <!-- DAILY OFFER SECTION -->
-<section class="daily-offer-section mt-40">
+<section class="daily-offer-section mt-32">
     <div class="offer-container">
-        <h2 class="offer-title">Today's Special Offer</h2>
-        
+
         <!-- Poster Wrapper -->
         <div class="poster-wrapper">
-            <img id="daily-poster" src="img/offerMonday.jpeg" alt="Loading today's offer..." class="poster-image">
+            <img id="daily-poster"
+                 src="img/offerMonday.jpeg"
+                 alt="Loading today's offer..."
+                 class="poster-image">
         </div>
 
         <!-- Price and Dynamic Cart Button Area -->
-        <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4 w-full">
+        <div id="daily-offer-actions"
+             class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4 w-full">
+
             <!-- Dynamic Price Tag -->
-            <span id="daily-price-tag" class="text-xl font-bold text-[#b93d22]">0/=</span>
-            
+            <span id="daily-price-tag"
+                  class="text-xl font-bold text-[#b93d22]">0/=</span>
+
             <!-- Dynamic Button -->
-            <button id="add-offer-to-cart" 
+            <button id="add-offer-to-cart"
+                    type="button"
                     class="flex items-center gap-2 bg-[#b93d22] text-white px-4 py-2 rounded-full font-bold hover:bg-[#8a2b0c] hover:text-white transition-all active:scale-95">
+
                 <span>Add</span>
-                <svg xmlns="http://w3.org" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-5 w-5"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 4v16m8-8H4" />
                 </svg>
             </button>
         </div>
+
     </div>
 </section>
 
-<!-- STYLES (CSS) -->
+
 <style>
     .daily-offer-section {
         display: flex;
@@ -192,6 +209,8 @@
         align-items: center;
         padding: 40px 10px;
         background-color: #f9f9f9;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .offer-container {
@@ -204,7 +223,8 @@
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         width: 100%;
-        max-width: 809px; /* Matches max poster width */
+        max-width: 809px;
+        box-sizing: border-box;
     }
 
     .offer-title {
@@ -217,19 +237,57 @@
 
     .poster-wrapper {
         width: 100%;
-        height: 500px;     
+        height: auto;
         overflow: hidden;
         border-radius: 8px;
-        background-color: #eee; 
+        background-color: #eee;
     }
 
     .poster-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; 
         display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Full-width poster on phones and small screens */
+    @media (max-width: 640px) {
+        .daily-offer-section {
+            padding: 20px 0;
+        }
+
+        .offer-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 16px 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .offer-title {
+            padding: 0 12px;
+            font-size: 1.4rem;
+        }
+
+        .poster-wrapper {
+            width: 100%;
+            border-radius: 0;
+        }
+
+        .poster-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .daily-offer-section .mt-6 {
+            width: 100%;
+            padding-left: 12px;
+            padding-right: 12px;
+            box-sizing: border-box;
+        }
     }
 </style>
+
 
 
 </section>
@@ -5643,9 +5701,13 @@ document.addEventListener('DOMContentLoaded', updateCartBadge);
     }
   })();
 
-  /* daily offer change script */document.addEventListener("DOMContentLoaded", function() {
-    // 1. Define the unique data & pricing structure for each day of the week
-    // Index 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+  
+/* DAILY OFFER CHANGE SCRIPT */
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1. Daily offer data
+    // Index: 0 = Sunday, 1 = Monday, ..., 6 = Saturday
     const dailyOffers = [
         {
             dayName: "Sunday",
@@ -5691,31 +5753,52 @@ document.addEventListener('DOMContentLoaded', updateCartBadge);
         }
     ];
 
-    // 2. Determine today's day sequence index
+    // 2. Identify today's offer
     const todayIndex = new Date().getDay();
     const todaysOffer = dailyOffers[todayIndex];
 
-    // 3. Select your document objects
+    // 3. Select HTML elements
     const posterImage = document.getElementById("daily-poster");
     const priceTag = document.getElementById("daily-price-tag");
     const cartButton = document.getElementById("add-offer-to-cart");
+    const offerActions = document.getElementById("daily-offer-actions");
 
-    // 4. Update the content and hook up your addToCart system
-    if (posterImage && priceTag && cartButton) {
-        // Change image file path and alt tags
+    // 4. Update the poster
+    if (posterImage) {
         posterImage.src = todaysOffer.image;
         posterImage.alt = `Today's Special: ${todaysOffer.dishName}`;
+    }
 
-        // Format currency view to match your "14,000/=" template structure
-        priceTag.textContent = `${todaysOffer.price.toLocaleString()}/=`;
+    // 5. Tuesday: poster only, no price or Add to Cart
+    if (offerActions) {
+        if (todaysOffer.dayName === "Tuesday") {
+            offerActions.style.display = "none";
+        } else {
+            offerActions.style.display = "flex";
+        }
+    }
 
-        // Direct event listener integration with your global addToCart mechanism
-        cartButton.addEventListener("click", function() {
-            addToCart(todaysOffer.dishName, todaysOffer.price);
+    // 6. Update price for all non-Tuesday offers
+    if (priceTag) {
+        priceTag.textContent =
+            `${todaysOffer.price.toLocaleString("en-US")}/=`;
+    }
+
+    // 7. Connect Add to Cart for other days only
+    if (cartButton && todaysOffer.dayName !== "Tuesday") {
+        cartButton.addEventListener("click", function () {
+            if (typeof addToCart === "function") {
+                addToCart(todaysOffer.dishName, todaysOffer.price);
+            } else {
+                console.error("addToCart() function was not found.");
+            }
         });
     }
+
 });
-  
+
+
+
 /* ios hover */
  document.addEventListener("touchstart", function() {}, true);
 </script>
