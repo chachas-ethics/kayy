@@ -153,16 +153,33 @@
 </head>
 <body>
 
-<div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 px-2 py-6 sm:py-10 bg-stone-50 border-y-2 border-amber-800 text-center select-none w-full">
-  <!-- Left Icon -->
-  
-  <!-- Heading Text -->
-  <h1 class="font-serif text-1xl sm:text-3xl md:text-4xl lg:text-4xl font-bold tracking-widest text-stone-800 mx-2">
-    ABOUT <span class="text-[#b93d22]">kayy. Kafe & Grill</span> and <span class="text-[#63c89a]">THE SCOOP</span>
+    
+<!-- ABOUT US HEADER -->
+<div class="grid grid-cols-[40px_1fr_40px] sm:grid-cols-[48px_1fr_48px] items-center gap-3 w-full px-4 sm:px-8 py-6 sm:py-8 bg-stone-50 border-y-2 border-amber-800">
+
+  <!-- Back Button -->
+  <a
+    href="javascript:history.back()"
+    aria-label="Go back"
+    class="flex items-center justify-center justify-self-start hover:scale-110 transition-transform"
+  >
+    <img
+      src="thumbnails/left.png"
+      alt="Go Back"
+      class="w-10 h-10 sm:w-10 sm:h-10 border border-black rounded-full p-2"
+    >
+  </a>
+
+  <!-- Centered Heading -->
+  <h1 class="text-center font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.1em] text-stone-800">
+    ABOUT US
   </h1>
-  
-  <!-- Right Icon -->
-  </div>
+
+  <!-- Balancing Spacer -->
+  <div aria-hidden="true"></div>
+
+</div>
+
 
 
 <!-- ABOUT US SECTION -->
@@ -210,9 +227,8 @@
         </div>
     </div>
 </section>
-
 <!-- FOOTER SECTION -->
-<footer class="bg-zinc-950 text-zinc-400 py-32 px-6 border-t border-zinc-800">
+<footer class="grainy-footer text-zinc-400 py-32 px-6 border-t border-zinc-800">
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             
@@ -221,9 +237,9 @@
     <!-- Logos Row: Now Left to Right -->
    <div class="space-y-6">
     <!-- Logos Row -->
-    <div class="flex items-center space-x-4">
-        <img src="thumbnails/kayynew.PNG" alt="kayy. Logo" class="h-24 w-auto rounded-full hover:grayscale-0 transition-all duration-300">
-        <img src="images/TSLOGOi.png" alt="The Scoop Logo" class="h-19 w-16 rounded-full hover:grayscale-0 transition-all duration-300">
+    <div class="flex items-center space-x-2">
+        <img src="thumbnails/kayynew.PNG" alt="kayy. Logo" class="h-32 w-auto rounded-full hover:grayscale-0 transition-all duration-300">
+        <img src="images/scoop1.jpeg" alt="The Scoop Logo" class="h-12 w-auto rounded-full hover:grayscale-0 transition-all duration-300">
     </div>
 
     <p class="text-sm leading-relaxed text-zinc-400">
@@ -244,7 +260,13 @@
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z"/></svg>
         </a>
 
-    
+     <!-- Authentic Facebook Icon -->
+<a href="YOUR_FACEBOOK_PAGE_URL" target="_blank" class="text-zinc-400 hover:text-[#b93d22] transition-all duration-300 transform hover:scale-110">
+    <span class="sr-only">Facebook</span>
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://w3.org">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+</a>
 
 
 
@@ -311,6 +333,31 @@
 
     </div>
 </footer>
+
+<style>
+  
+/* Grainy Footer Texture */
+.grainy-footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.grainy-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.30;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+
+    background-size: 180px 180px;
+}
+
+</style>
 
 
     <script>

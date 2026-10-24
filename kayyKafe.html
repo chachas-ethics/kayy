@@ -88,7 +88,10 @@
         <!-- 2. CATEGORIES (Now BELOW) -->
         <div class="flex items-center gap-3 overflow-x-auto px-6 pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <div class="flex gap-3 items-center">
-                <a href="#appetizers" class="shrink-0 px-4 py-1 rounded-full hover:bg-black uppercase text-white transition font-[Abril_Fatface] whitespace-nowrap">
+                <a href="#today" class="shrink-0 px-4 py-1 rounded-full hover:bg-black uppercase text-white transition font-[Abril_Fatface] whitespace-nowrap">
+                  Today's Offer
+                </a>
+                 <a href="#appetizers" class="shrink-0 px-4 py-1 rounded-full hover:bg-black uppercase text-white transition font-[Abril_Fatface] whitespace-nowrap">
                     Appetizers
                 </a>
                 <a href="#youaresouper" class="shrink-0 px-4 py-1 rounded-full hover:bg-black uppercase text-white transition font-[Abril_Fatface] whitespace-nowrap">
@@ -159,46 +162,74 @@
 
 
 <!-- DAILY OFFER SECTION -->
-<section class="daily-offer-section mt-32">
-    <div class="offer-container">
+<section id="today" class="daily-offer-section scroll-mt-40 mt-32">
 
-        <!-- Poster Wrapper -->
-        <div class="poster-wrapper">
-            <img id="daily-poster"
-                 src="img/offerMonday.jpeg"
-                 alt="Loading today's offer..."
-                 class="poster-image">
+  <div class="offer-container">
+
+    <!-- Daily Offer Card -->
+    <div class="group flex flex-col bg-zinc-950 overflow-hidden hover:border-[#b93d22]/50 transition-all duration-300">
+
+      <!-- Offer Poster -->
+      <div class="relative overflow-hidden">
+        <img
+          id="daily-poster"
+          src="img/offerMonday.jpeg"
+          alt="Today's special offer"
+          loading="lazy"
+          class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+        >
+      </div>
+
+      <!-- Offer Details -->
+      <div class="p-6 flex flex-col">
+
+      
+        <!-- Price + Action -->
+        <div
+          id="daily-offer-actions"
+          class="mt-6 flex items-center justify-between w-full"
+        >
+
+          <!-- Dynamic Price -->
+          <span
+            id="daily-price-tag"
+            class="text-2xl font-bold text-[#b93d22]"
+          >
+            0/= TZS
+          </span>
+
+          <!-- Dynamic Cart Button -->
+          <button
+            id="add-offer-to-cart"
+            type="button"
+            class="flex items-center gap-2 bg-white text-black px-5 py-3 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95"
+          >
+            <span>Add</span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4v16m8-8H4"
+              />
+            </svg>
+          </button>
+
         </div>
 
-        <!-- Price and Dynamic Cart Button Area -->
-        <div id="daily-offer-actions"
-             class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4 w-full">
-
-            <!-- Dynamic Price Tag -->
-            <span id="daily-price-tag"
-                  class="text-xl font-bold text-[#b93d22]">0/=</span>
-
-            <!-- Dynamic Button -->
-            <button id="add-offer-to-cart"
-                    type="button"
-                    class="flex items-center gap-2 bg-[#b93d22] text-white px-4 py-2 rounded-full font-bold hover:bg-[#8a2b0c] hover:text-white transition-all active:scale-95">
-
-                <span>Add</span>
-
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     class="h-5 w-5"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4v16m8-8H4" />
-                </svg>
-            </button>
-        </div>
+      </div>
 
     </div>
+
+  </div>
+
 </section>
 
 
@@ -208,7 +239,7 @@
         justify-content: center;
         align-items: center;
         padding: 40px 10px;
-        background-color: #f9f9f9;
+        background-color: #09090b;
         width: 100%;
         box-sizing: border-box;
     }
@@ -218,7 +249,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        background: white;
+        background: #09090b;
         padding: 24px;
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -396,7 +427,7 @@ and coated in a flavorful blend of herbs and spices.
 
     <!-- Price + Action -->
     <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-      <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+      <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
       <!-- Notice: We pass name and price here -->
       <button onclick="addToCart('Chicken Lollipop', 10000)" 
               class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
@@ -431,7 +462,7 @@ teriyaki glaze.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Teriyaki Meatballs', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -448,7 +479,7 @@ teriyaki glaze.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/Shrimp Dynamite.jpg" alt="shrimp dynamite" loading="lazy"
+        <img src="images/shrimpdynamite.jpeg" alt="shrimp dynamite" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -464,7 +495,7 @@ battered and fried. Served with a dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Shrimp Dynamite', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -481,7 +512,7 @@ battered and fried. Served with a dipping sauce.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/crispy calamari.jpg" alt="Crispy calamari" loading="lazy"
+        <img src="images/crispycalamari.jpeg" alt="Crispy calamari" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -497,7 +528,7 @@ rings. Served with a dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Crispy Calamari', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -531,7 +562,7 @@ golden, crunchy batter. Served with a dipping sauce
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">15,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">15,000/= TZS</span>
           <button onclick="addToCart('kayy. Chilli Prawns', 15000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -584,7 +615,7 @@ creamy goodness.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Seafood Chowder Soup', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -617,7 +648,7 @@ chicken.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Chicken Corn Soup', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -649,7 +680,7 @@ Creamy vegetable soup made with fresh garden vegetables, blended into a rich and
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
           <button onclick="addToCart('Creamy Vegetable Soup', 10000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -680,7 +711,7 @@ Creamy vegetable soup made with fresh garden vegetables, blended into a rich and
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">15,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">15,000/= TZS</span>
           <button onclick="addToCart('Mchemsho wa Samaki', 15000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -729,7 +760,7 @@ and onion in between slices of bread.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
           <button onclick="addToCart('Egg sandwich', 10000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -762,7 +793,7 @@ onion, and cucumber between slices of bread.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Chicken Mayo', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -796,7 +827,7 @@ cucumber & lettuce in between slices of bread.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Tuna Corn Mayo', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -831,7 +862,7 @@ cucumber in between slices of bread
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Club Sandwich', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -883,7 +914,7 @@ fries , coleslaw salad and dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Crispy Chicken Wings', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -916,7 +947,7 @@ coleslaw salad and dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">15,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">15,000/= TZS</span>
           <button onclick="addToCart('Hot Garlic', 15000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -949,7 +980,7 @@ coleslaw salad and dipping sauce.
 
         <!-- Price + Action -->  
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">13,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">13,000/= TZS</span>
           <button onclick="addToCart('Sweet Chilli', 13000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -983,7 +1014,7 @@ coleslaw salad and dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Sticky Thai', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1017,7 +1048,7 @@ coleslaw salad and dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">13,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">13,000/= TZS</span>
           <button onclick="addToCart('Ukwaju Twist', 13000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1034,7 +1065,7 @@ coleslaw salad and dipping sauce.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/mango lime.jpg" alt="Mango Lime wings" loading="lazy"
+        <img src="images/mangolime.jpeg" alt="Mango Lime wings" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -1051,7 +1082,7 @@ sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">15,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">15,000/= TZS</span>
           <button onclick="addToCart('Mango Lime', 15000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1084,7 +1115,7 @@ fries , coleslaw salad and dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Honey BBQ', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1117,7 +1148,7 @@ sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">15,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">15,000/= TZS</span>
           <button onclick="addToCart('Buffalo Wings', 15000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1151,7 +1182,7 @@ salad and dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Lemon Pepper', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1186,7 +1217,7 @@ dipping sauce.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">16,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">16,000/= TZS</span>
           <button onclick="addToCart('Kayy. Chilli', 16000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1233,7 +1264,7 @@ lettuce, cucumber, onion, tomato and cheese.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">16,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">16,000/= TZS</span>
           <button onclick="addToCart('Crispy Chicken', 16000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1249,7 +1280,7 @@ lettuce, cucumber, onion, tomato and cheese.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/tandoori chicken burger.jpg" alt="Tandoori chicken burger" loading="lazy"
+        <img src="images/tandoori.jpeg" alt="Tandoori chicken burger" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -1265,7 +1296,7 @@ lettuce, cucumber, onion, and tomato.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Tandoori Chicken Burger', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1297,7 +1328,7 @@ lettuce, cucumber, onion & tomato.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">17,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">17,000/= TZS</span>
           <button onclick="addToCart('Fish Burger', 17000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1330,7 +1361,7 @@ cucumber & onion.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Beef Burger', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1363,7 +1394,7 @@ onions, and double cheese.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">20,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">20,000/= TZS</span>
           <button onclick="addToCart('kayy. Classic Burger', 20000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1452,7 +1483,7 @@ onions, and double cheese.
 <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
   <!-- Dish Image -->
   <div class="relative overflow-hidden h-64">
-    <img src="potraits/chicken tikka pizza.jpg" alt="Margherita Pizza" loading="lazy"
+    <img src="images/chickentikkapizza.jpeg" alt="Margherita Pizza" loading="lazy"
          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
   </div>
 
@@ -1741,7 +1772,7 @@ onions, and double cheese.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/asian steak potatoes.webp" alt="asian steak potatoes" loading="lazy"
+        <img src="images/steakandpotatoes.jpeg" alt="asian steak potatoes" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -1757,7 +1788,7 @@ spices and fried cubed potatoes seasoned with aromatic herbs.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Asian Steak Potatoes', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1773,7 +1804,7 @@ spices and fried cubed potatoes seasoned with aromatic herbs.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/chicken biryani.jpg" alt="Chicken biryani" loading="lazy"
+        <img src="images/chickenbiryani.jpeg" alt="Chicken biryani" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -1789,7 +1820,7 @@ aromatic spices, and garnished with herbs.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Chicken Biryani', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1822,7 +1853,7 @@ mutton/beef, aromatic spices, and garnished with herbs.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Beef/Mutton Biryani', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1854,7 +1885,7 @@ spices, and garnished with herbs.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Fish Biryani', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1887,7 +1918,7 @@ vegetables, and aromatic seasonings.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">13,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">13,000/= TZS</span>
           <button onclick="addToCart('Chicken Fried Rice', 13000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1903,7 +1934,7 @@ vegetables, and aromatic seasonings.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/shrimp fried rice.jpg" alt="Shrimp Fried Rice" loading="lazy"
+        <img src="images/shrimpfriedrice.jpeg" alt="Shrimp Fried Rice" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -1919,7 +1950,7 @@ and savory seasonings.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">16,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">16,000/= TZS</span>
           <button onclick="addToCart('Shrimp Fried Rice', 16000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -1952,7 +1983,7 @@ flavorful seasonings
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Veg Fried Rice', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2002,7 +2033,7 @@ flavorful seasonings
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">16,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">16,000/= TZS</span>
           <button onclick="addToCart('Pweza Nazi', 16000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2034,7 +2065,7 @@ flavorful seasonings
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Prawns Nazi', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2067,7 +2098,7 @@ vegetables.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">16,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">16,000/= TZS</span>
           <button onclick="addToCart('Chilli Pepper Fish', 16000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2098,7 +2129,7 @@ vegetables.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Seafood In Coconut Sauce', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2130,7 +2161,7 @@ vegetables.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Samaki Wa Kupaka', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2183,7 +2214,7 @@ sauce with aromatic spices, served with side of your choice.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Chicken Makange', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2216,7 +2247,7 @@ aromatic spices.. Served with side of your choice.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">13,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">13,000/= TZS</span>
           <button onclick="addToCart('Beef Makange', 13000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2250,7 +2281,7 @@ with side of your choice.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Fish Makange', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2282,7 +2313,7 @@ with side of your choice and kachumbari salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Kuku Fried', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2299,7 +2330,7 @@ with side of your choice and kachumbari salad.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="thumbnails/samaki fried.jpeg" alt="Creamy mushroom soup" loading="lazy"
+        <img src="images/samakifried.jpeg" alt="Creamy mushroom soup" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -2315,7 +2346,7 @@ choice and kachumbari salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">16,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">16,000/= TZS</span>
           <button onclick="addToCart('Samaki Fried', 16000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2363,7 +2394,7 @@ choice and kachumbari salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
           <button onclick="addToCart('Fish Fingers', 10000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2394,7 +2425,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
           <button onclick="addToCart('Chicken Tenders', 10000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2426,7 +2457,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">9,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">9,000/= TZS</span>
           <button onclick="addToCart('Sausage & Chips', 9000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2471,7 +2502,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Plain Fries', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2499,7 +2530,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Masala Fries', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2516,7 +2547,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="images/cassava.jpg" alt="Cassava" loading="lazy"
+        <img src="images/muhogo.jpeg" alt="Cassava" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -2528,7 +2559,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">4,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">4,000/= TZS</span>
           <button onclick="addToCart('Cassava', 4000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2557,7 +2588,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">4,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">4,000/= TZS</span>
           <button onclick="addToCart('Sweet Potato', 4000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2585,7 +2616,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Zege (Chips Mayai)', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2614,7 +2645,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">4,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">4,000/= TZS</span>
           <button onclick="addToCart('Mash Potato', 4000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2643,7 +2674,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Ndizi Mzuzu', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2671,7 +2702,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Ugali', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2700,7 +2731,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Chapati (2pc)', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2729,7 +2760,7 @@ Bite-sized chicken pieces with a crispy coating, served with fries.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Steamed Rice', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2778,7 +2809,7 @@ served with fries and salad
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Chicken Sekela', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2810,7 +2841,7 @@ with fries and salad
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Chicken Lemon', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2843,7 +2874,7 @@ spices, served with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Chicken Gajjar', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2876,7 +2907,7 @@ with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Chicken Peri-Peri', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2893,7 +2924,7 @@ with fries and salad.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="images/kuku choma.jpg" alt="kuku choma" loading="lazy"
+        <img src="images/kukuchoma.jpeg" alt="kuku choma" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -2909,7 +2940,7 @@ fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Kuku Choma', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2942,7 +2973,7 @@ with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">14,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">14,000/= TZS</span>
           <button onclick="addToCart('Wings Choma', 14000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -2973,7 +3004,7 @@ with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Chicken Mishkaki Plate', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3005,7 +3036,7 @@ with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
           <button onclick="addToCart('Beef Mishkaki Plate', 10000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3038,7 +3069,7 @@ fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">12,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">12,000/= TZS</span>
           <button onclick="addToCart('Nundu Plate', 12000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3070,7 +3101,7 @@ served with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">15,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">15,000/= TZS</span>
           <button onclick="addToCart('Mbuzi Choma', 15000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3103,7 +3134,7 @@ aromatic herbs served with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">18,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">18,000/= TZS</span>
           <button onclick="addToCart('Samaki Choma', 18000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3136,7 +3167,7 @@ with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">10,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">10,000/= TZS</span>
           <button onclick="addToCart('Sausage Choma', 10000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3169,7 +3200,7 @@ with fries and salad.
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="potraits/duoodelight.jpeg" alt="Creamy mushroom soup" loading="lazy"
+        <img src="images/duo.jpeg" alt="Creamy mushroom soup" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -3185,7 +3216,7 @@ with fries and salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">28,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">28,000/= TZS</span>
           <button onclick="addToCart('Duo Delight', 28000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3217,7 +3248,7 @@ Fries x2 & Ndizi Mzuzu x3 & Kachumbari Salad.
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">50,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">50,000/= TZS</span>
           <button onclick="addToCart('Family Fiesta', 50000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3249,7 +3280,7 @@ Mini Pizza x4, served with Plain Fries x3 , Ndizi Mzuzu x4 & 1.5lt Soft Drink
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">75000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">75000/= TZS</span>
           <button onclick="addToCart('Choma Bonanza', 75000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3283,7 +3314,7 @@ Zege x1 , Ndizi Mzuzu x5 & 1.5lt Soft Drink
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">95,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">95,000/= TZS</span>
           <button onclick="addToCart('Choma Extravaganza', 95000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3317,7 +3348,7 @@ dipping sauce , salad and fries (2 pax)
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">25,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">25,000/= TZS</span>
           <button onclick="addToCart('Choma Wings Platter', 25000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3350,7 +3381,7 @@ dipping sauce , salad and fries (2 pax)
     <div class="group flex flex-col bg-zinc-900/50 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#b93d22]/50 transition-all duration-300">
       <!-- Dish Image -->
       <div class="relative overflow-hidden h-64">
-        <img src="potraits/frittomisto.png" alt="Creamy mushroom soup" loading="lazy"
+        <img src="images/fritto misto.jpeg" alt="Creamy mushroom soup" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       </div>
 
@@ -3366,7 +3397,7 @@ dipping sauce and fries (2 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">24,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">24,000/= TZS</span>
           <button onclick="addToCart('Fritto Misto', 24000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3400,7 +3431,7 @@ choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">55,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">55,000/= TZS</span>
           <button onclick="addToCart('Fisherman\'s Platter', 55000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3433,7 +3464,7 @@ side of your choice (3 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">50,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">50,000/= TZS</span>
           <button onclick="addToCart('Mixed Grill Platter', 50000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3467,7 +3498,7 @@ sauce , salad and fries (2 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">25,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">25,000/= TZS</span>
           <button onclick="addToCart('Chicken Wings Platter', 25000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3502,7 +3533,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">45,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">45,000/= TZS</span>
           <button onclick="addToCart('kayy. Platter', 45000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3547,7 +3578,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">5,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">5,000/= TZS</span>
           <button onclick="addToCart('Pineapple Juice', 5000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3575,7 +3606,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">5,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">5,000/= TZS</span>
           <button onclick="addToCart('Mango Juice', 5000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3604,7 +3635,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">5,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">5,000/= TZS</span>
           <button onclick="addToCart('Passion Juice', 5000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3633,7 +3664,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">5,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">5,000/= TZS</span>
           <button onclick="addToCart('Watermelon Juice', 5000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3662,7 +3693,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">5,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">5,000/= TZS</span>
           <button onclick="addToCart('Orange Juice', 5000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3691,7 +3722,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Stafeli Juice', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3720,7 +3751,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Bungo Special Juice', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3749,7 +3780,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Avocado Juice', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3778,7 +3809,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Tropical Juice', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3807,7 +3838,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Lemonade', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3835,7 +3866,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Fruit Lemonade', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3880,7 +3911,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Virgin Mary Mojito', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3910,7 +3941,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Strawberry Mojito', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3939,7 +3970,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">9,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">9,000/= TZS</span>
           <button onclick="addToCart('Berry Mix Mojito', 9000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3968,7 +3999,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Passion Mojito', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -3997,7 +4028,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Pineapple Mojito', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4026,7 +4057,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Mango Mojito', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4055,7 +4086,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Blue Lagoon', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4084,7 +4115,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Midnight Breeze', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4112,7 +4143,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Sunset Color', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4141,7 +4172,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Kiwi Mojito', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4170,7 +4201,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Jembe Mojito', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4199,7 +4230,7 @@ dipping sauces , salad and side of your choice (4 pax).
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Vimto Mojito', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4248,7 +4279,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Celebrity Crush', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4281,7 +4312,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Big Bad Wolf', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4313,7 +4344,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Golden Hour', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4345,7 +4376,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">8,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">8,000/= TZS</span>
           <button onclick="addToCart('Very Berry Fruit Fusion', 8000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4377,7 +4408,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Tropical Twist Fruit Fusion', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4409,7 +4440,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Mango Madness', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4441,7 +4472,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Refresher', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4473,7 +4504,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Sunshine', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4504,7 +4535,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">6,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">6,000/= TZS</span>
           <button onclick="addToCart('Hawaii Trio', 6000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4536,7 +4567,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Detoxify', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4568,7 +4599,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Power Booster', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4600,7 +4631,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Coco Loco', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4631,7 +4662,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('Minty Twist', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4663,7 +4694,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">7,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">7,000/= TZS</span>
           <button onclick="addToCart('kayy. Mix Fruit Fusion', 7000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4708,7 +4739,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">1,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">1,000/= TZS</span>
           <button onclick="addToCart('500ml Water', 1000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4739,7 +4770,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">2,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">2,000/= TZS</span>
           <button onclick="addToCart('1lt Water', 2000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4768,7 +4799,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('1.6lt Water', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4797,7 +4828,7 @@ Lime & Coconut Water
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">2,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">2,000/= TZS</span>
           <button onclick="addToCart('Coconut Water', 2000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4830,7 +4861,7 @@ Orange, Passion , Pineapple
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">1,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">1,000/= TZS</span>
           <button onclick="addToCart('Soft Drinks', 1000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4862,7 +4893,7 @@ Orange, Passion , Pineapple
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Soft Drink 1.5lt', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4894,7 +4925,7 @@ Orange, Passion , Pineapple
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">1,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">1,000/= TZS</span>
           <button onclick="addToCart('Box Juice', 1000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4942,7 +4973,7 @@ Orange, Passion , Pineapple
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">2,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">2,000/= TZS</span>
           <button onclick="addToCart('Box Milk', 2000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -4976,7 +5007,7 @@ Orange, Passion , Pineapple
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">2,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">2,000/= TZS</span>
           <button onclick="addToCart('Yoghurt 150ml', 2000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -5008,7 +5039,7 @@ Orange, Passion , Pineapple
 
         <!-- Price + Action -->
         <div class="mt-6 flex items-center justify-between border-t border-zinc-800 pt-4">
-          <span class="text-xl font-bold text-[#b93d22]">3,000/=</span>
+          <span class="text-xl font-bold text-[#b93d22]">3,000/= TZS</span>
           <button onclick="addToCart('Yoghurt 300ml', 3000)" 
                   class="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-[#b93d22] hover:text-white transition-all active:scale-95">
             <span>Add</span>
@@ -5345,7 +5376,7 @@ Orange, Passion , Pineapple
 
 
 <!-- FOOTER SECTION -->
-<footer class="bg-zinc-950 text-zinc-400 py-32 px-6 border-t border-zinc-800">
+<footer class="grainy-footer text-zinc-400 py-32 px-6 border-t border-zinc-800">
     <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             
@@ -5354,9 +5385,9 @@ Orange, Passion , Pineapple
     <!-- Logos Row: Now Left to Right -->
    <div class="space-y-6">
     <!-- Logos Row -->
-    <div class="flex items-center space-x-4">
-        <img src="thumbnails/kayynew.PNG" alt="kayy. Logo" class="h-24 w-auto rounded-full hover:grayscale-0 transition-all duration-300">
-        <img src="images/TSLOGOi.png" alt="The Scoop Logo" class="h-19 w-16 rounded-full hover:grayscale-0 transition-all duration-300">
+    <div class="flex items-center space-x-2">
+        <img src="thumbnails/kayynew.PNG" alt="kayy. Logo" class="h-32 w-auto rounded-full hover:grayscale-0 transition-all duration-300">
+        <img src="images/scoop1.jpeg" alt="The Scoop Logo" class="h-12 w-auto rounded-full hover:grayscale-0 transition-all duration-300">
     </div>
 
     <p class="text-sm leading-relaxed text-zinc-400">
@@ -5451,6 +5482,31 @@ Orange, Passion , Pineapple
     </div>
 </footer>
 
+<style>
+  
+/* Grainy Footer Texture */
+.grainy-footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.grainy-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.30;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+
+    background-size: 180px 180px;
+}
+
+</style>
+
 
 </div>
 
@@ -5479,10 +5535,10 @@ Orange, Passion , Pineapple
     <button 
       id="cart-toggle"
       class="
-        w-full 
+        w-full
         bg-[#b93d22] 
         text-white 
-        py-5 rounded-2xl
+        py-4 rounded-2xl
         shadow-[0_10px_30px_rgba(185,61,34,0.3)]
         hover:shadow-[0_15px_35px_rgba(185,61,34,0.4)]
         active:scale-95
@@ -5781,7 +5837,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 6. Update price for all non-Tuesday offers
     if (priceTag) {
         priceTag.textContent =
-            `${todaysOffer.price.toLocaleString("en-US")}/=`;
+            `${todaysOffer.price.toLocaleString("en-US")}/= TZS`;
     }
 
     // 7. Connect Add to Cart for other days only
